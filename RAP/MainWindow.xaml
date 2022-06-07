@@ -1,0 +1,36 @@
+﻿<Window x:Class="RAP.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:view="clr-namespace:RAP.View"
+        mc:Ignorable="d"
+        Title="Research Assessment Program" Height="600" Width="800">
+    <Grid>
+       
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--lefsize windown-->
+        <Border BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="2">
+            <view:ResearcherListView x:Name="RLV" Loaded="RLV_Loaded"/>
+        </Border>
+        <!-- Define middle windown-->
+        <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+            <ScrollViewer VerticalScrollBarVisibility="Visible" Width="Auto">
+                <view:ResearcherDetailsView x:Name="RDV" Loaded="RDV_Loaded"/>
+            </ScrollViewer>
+        </Border>
+        <!--Right size windown -->
+        <Border Grid.Column="3" BorderBrush="Black" BorderThickness="1">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Width="Auto">
+                <ContentControl x:Name="ODV"/>
+            </ScrollViewer>
+        </Border>
+
+    </Grid>
+</Window>

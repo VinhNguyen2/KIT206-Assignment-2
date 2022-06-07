@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="RAP.View.PublicationListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RAP.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+
+            <DockPanel>
+                <Label Content="Publications" DockPanel.Dock="Left" />
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <Label Content="from"/>
+                    <ComboBox x:Name="PublicationsYearBox1" Height="26" Width="70" SelectionChanged="PublicationsYearBox1_SelectionChanged"/>
+                    <Label Content="to"/>
+                    <ComboBox x:Name="PublicationsYearBox2" Height="26" Width="70" SelectionChanged="PublicationsYearBox2_SelectionChanged"/>
+                    <Button x:Name="FilterPublicationsButton" Height="26" Content="Filter" Width="100" Margin="5,0,0,0" Click="FilterPublicationsButton_Clicked"/>
+                </StackPanel>
+            </DockPanel>
+
+            <!-- Display The list -->
+            <ListView x:Name="PublicationsList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="PublicationsList_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Year_Pl}">
+                            <GridViewColumnHeader Tag="Year" Click="PublicationsList_YearHeaderClicked">Year</GridViewColumnHeader>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Title">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Title}" TextWrapping="Wrap"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

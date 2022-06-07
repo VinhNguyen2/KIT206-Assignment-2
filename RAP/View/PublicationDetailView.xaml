@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="RAP.View.PublicationDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RAP.View"
+             mc:Ignorable="d" 
+             >
+    <Grid>
+        <!--Define size Row and Column -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- fiedls and biding-->
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Title}" FontSize="25"/>
+
+        <Label Content="Authors:" Grid.Row="1" />
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Authors}"/>
+
+        <Label Content="DOI:" Grid.Row="2" />
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Doi}" />
+
+        <Label Content="Cite as:" Grid.Row="3" />
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding CiteAs}"/>
+
+        <Label Content="Publication Year:" Grid.Row="4" />
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding PublicationYear}"/>
+
+        <Label Content="Availability Date:" Grid.Row="5"/>
+        <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding Available, StringFormat='{}{0:dd/MM/yyy}'}"/>
+
+        <Label Content="Type:" Grid.Row="6"/>
+        <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding Type}"/>
+
+        <Label Content="Age:" Grid.Row="7"/>
+        <TextBlock Grid.Row="7" Grid.Column="1" Text="{Binding Age, StringFormat='{}{0} year(s)'}"/>
+    </Grid>
+</UserControl>
